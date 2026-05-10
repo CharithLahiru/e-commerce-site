@@ -32,7 +32,10 @@ function buildCard(product) {
   return `
     <div class="product-card" data-id="${product.id}" onclick="openProduct('${product.id}')">
       <div class="card-thumb">
-        <div class="card-thumb-emoji">${product.emoji}</div>
+        <!-- <div class="card-thumb-emoji">${product.emoji}</div> -->
+        <div class="card-thumb-image">
+          <img src="${product.imageUrl}" alt="${product.name}" loading="lazy" onerror="this.src='fallback-image.png'">
+        </div>
         ${badgeHtml}
         <div class="card-actions" onclick="event.stopPropagation()">
           <button class="card-act-btn" title="Add to Wishlist" onclick="toggleWishlistItem('${product.id}', this)">
